@@ -1,0 +1,6 @@
+target
+node_modules
+.wrangler
+
+# Source: https://developers.cloudflare.com/workers/configuration/secrets/#local-development-with-secrets
+.dev.vars

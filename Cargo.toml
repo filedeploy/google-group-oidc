@@ -1,0 +1,39 @@
+[package]
+name = "google-group-oidc"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.release]
+release = false
+
+[build]
+target = "wasm32-unknown-unknown"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+axum = { version = "0.7", features = ["form", "json", "query"], default-features = false }
+base64 = "0.22"
+chrono = "0.4"
+ciborium = "0.2"
+console_error_panic_hook = "0.1"
+getrandom = "0.2"
+itertools = "0.13"
+openidconnect = "3.5"
+serde = "1.0"
+serde_json = "1.0"
+serde_urlencoded = "0.7"
+# https://github.com/Keats/jsonwebtoken/issues/243
+surrealdb-jsonwebtoken = "8.3.0-surreal.1"
+thiserror = "1.0"
+tower-service = "0.3"
+url = { version = "2.5", features = ["serde"] }
+worker = { version = "0.4", features = ["http", "axum"] }
+worker-macros = { version = "0.4", features = ["http"] }
+
+# match openidconnect dep version
+reqwest = { version = "0.11", features = ["json"], default-features = false }
+
+# scripts only
+clap = { version = "4.5", features = ["derive"] }

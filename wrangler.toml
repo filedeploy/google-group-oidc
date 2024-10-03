@@ -1,0 +1,53 @@
+name = "google-group-oidc"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-09-12"
+
+# TODO: move the bindings into a new file
+
+[build]
+command = "worker-build --dev"
+
+# DEV
+
+[vars]
+ENVIRONMENT = "dev"
+
+[[kv_namespaces]]
+binding = "KV_AUTHORIZE_STATE"
+id = "1057b12faca8446a866c1bc544fe354e"
+
+[[kv_namespaces]]
+binding = "KV_ACCESS_TOKEN_STATE"
+id = "844282fea9c64dfeb370e9b9762855e2"
+
+[[kv_namespaces]]
+binding = "KV_REFRESH_TOKEN_STATE"
+id = "2a9010c10c814f8da7b7cbde2402d29d"
+
+[[kv_namespaces]]
+binding = "KV_CACHE"
+id = "8d8f51b710494100a14effd67aa75269"
+
+# PROD
+
+[env.prod.build]
+command = "worker-build --release"
+
+[env.prod.vars]
+ENVIRONMENT = "prod"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_AUTHORIZE_STATE"
+id = "1057b12faca8446a866c1bc544fe354e"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_ACCESS_TOKEN_STATE"
+id = "844282fea9c64dfeb370e9b9762855e2"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_REFRESH_TOKEN_STATE"
+id = "2a9010c10c814f8da7b7cbde2402d29d"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_CACHE"
+id = "8d8f51b710494100a14effd67aa75269"
